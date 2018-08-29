@@ -24,31 +24,18 @@ public class CheckMainMenuTest extends BaseScript{
 
         for (int i = 0; i < list.size(); i++) {
 
-            if (i == 2 || i == 6) {
-
-                clickOnEachMenuItem(driver, i, ".menu > li > a", ".main-menu > li > a");
-            } else {
-
-                if (i == 3 || i == 7) {
-
-                    clickOnEachMenuItem(driver, i, ".main-menu > li > a", ".menu > li > a");
-                } else {
-
-                    clickOnEachMenuItem(driver, i, ".menu > li > a", ".menu > li > a");
-                }
-            }
-
+            clickOnEachMenuItem(driver, i, "nav>ul>li>a");
         }
 
         driver.quit();
     }
 
-    public static void clickOnEachMenuItem(WebDriver driver, int i, String value, String value1) {
+    public static void clickOnEachMenuItem(WebDriver driver, int i, String value) {
 
         driver.findElements(By.cssSelector(value)).get(i).click();
-        System.out.println(driver.findElements(By.cssSelector(value1)).get(i).getText());
+        System.out.println(driver.findElements(By.cssSelector(value)).get(i).getText());
         driver.navigate().refresh();
-        System.out.println(driver.findElements(By.cssSelector(value1)).get(i).getText());
+        System.out.println(driver.findElements(By.cssSelector(value)).get(i).getText());
         System.out.println();
     }
 }
